@@ -18,7 +18,7 @@ public class Board extends JPanel implements ActionListener{
     private final int B_HEIGHT = 400;
     private final int BL_SIZE = 20;
     private final int ALL_BL = 400;
-    private final int DELAY = 80;
+    private final int DELAY = 60;
 
     private boolean leftDirection = false;
     private boolean rightDirection = false;
@@ -30,6 +30,7 @@ public class Board extends JPanel implements ActionListener{
     private int block ;
     private int apple_x;
     private int apple_y;
+    JButton b = new JButton("New Game");
 
 
     private final int x[] = new int[ALL_BL];
@@ -177,7 +178,7 @@ public class Board extends JPanel implements ActionListener{
 
         r = (int) (Math.random() * 19);
         apple_y = ((r * BL_SIZE));
-    }
+    } 
     private void checkApple() {
 
         if ((x[0] == apple_x) && (y[0] == apple_y)) {
@@ -201,6 +202,18 @@ public class Board extends JPanel implements ActionListener{
         g.setColor(Color.white);
         g.setFont(small);
         g.drawString(msg, (B_WIDTH - metr.stringWidth(msg)) / 2, B_HEIGHT / 2);
+
+        b.setBounds(50,100,95,30);  
+        b.setVisible(true);
+        add(b);
+        b.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                        timer.stop();
+                        ingame = true;
+                        initBoard();
+                        remove(b);
+                    }  
+                });   
         
     }
 

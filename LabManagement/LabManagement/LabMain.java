@@ -1,25 +1,25 @@
 import javax.swing.JFrame;
 
-public class Snake extends JFrame {
+public class LabMain extends JFrame {
     
 
-    public Snake(){
+    public LabMain(){
         initUI();
     }
 
     private void initUI(){
-        getContentPane().add(new Board());
+        getContentPane().add(new LabManage());
         
         setResizable(false);
         pack();
         
-        setTitle("Snake");
+        setTitle("Lab Management");
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 
     public static void main(String[] args){
-        JFrame ex = new Snake();
+        JFrame ex = new LabMain();
     }
 }
